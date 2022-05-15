@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.birthdayapp.databinding.ActivityMainBinding
+import com.example.domain.BirthDayUser
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,11 +19,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        binding.userList.addItemDecoration(
-            DividerItemDecoration(
-                this,
-                LinearLayoutManager.VERTICAL
+        binding.userList.apply {
+            addItemDecoration(
+                DividerItemDecoration(
+                    this@MainActivity,
+                    LinearLayoutManager.VERTICAL
+                )
             )
-        )
+            adapter = UserAdapter(::initUserDetail)
+        }
+    }
+
+    private fun initUserDetail(birthDayUser: BirthDayUser) {
+        // todo
     }
 }
