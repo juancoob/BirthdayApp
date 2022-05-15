@@ -5,7 +5,7 @@ import retrofit2.http.Query
 
 interface RemoteService {
 
-    @GET("randomuser.me/api/")
+    @GET("api/")
     suspend fun fetchBirthdayUsers(
         @Query("results") results: String,
         @Query("seed") seed: String,

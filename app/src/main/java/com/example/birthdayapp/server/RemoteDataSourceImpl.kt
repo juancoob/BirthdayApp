@@ -2,10 +2,9 @@ package com.example.birthdayapp.server
 
 import com.example.data.datasources.RemoteDataSource
 import com.example.domain.BirthDayUser
-import java.time.Instant
-import java.util.*
+import javax.inject.Inject
 
-class RemoteDataSourceImpl(
+class RemoteDataSourceImpl @Inject constructor(
     private val remoteService: RemoteService
 ) : RemoteDataSource {
 
