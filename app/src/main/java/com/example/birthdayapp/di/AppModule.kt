@@ -1,6 +1,9 @@
 package com.example.birthdayapp.di
 
+import com.example.birthdayapp.server.RemoteDataSourceImpl
 import com.example.birthdayapp.server.RemoteService
+import com.example.data.datasources.RemoteDataSource
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,4 +43,13 @@ class AppModule {
             .build()
             .create()
     }
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class AppDataModule {
+
+    @Binds
+    abstract fun bindRemoteDataSource(remoteDataSourceImpl: RemoteDataSourceImpl): RemoteDataSource
+
 }
